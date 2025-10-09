@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import participants from "./participants.json" assert { type: "json" };
 
 dotenv.config();
-const headers = { Authorization: `token ${process.env.TOKEN_GITHUB}` };
+const headers = { Authorization: `token ${process.env.GITHUB_TOKEN}` };
 
 // Fungsi ambil total commit dari GitHub
 async function getTotalCommits(username, repo) {
