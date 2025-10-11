@@ -36,18 +36,24 @@
                 ? "bg-yellow-500"
                 : "bg-blue-500";
 
+            const isDone = user.status.includes("Done") || user.progress >= 100;
+            const hideButton = user.total_commits >= 30 || isDone;
+
             container.innerHTML += `
               <div class="bg-gray-800 rounded-2xl p-5 shadow-lg hover:shadow-xl transition">
                 <div class="flex items-center justify-between mb-2">
                   <div>
                     <h2 class="text-xl font-semibold">${user.name}</h2>
                     <a href="https://github.com/${user.repo}" target="_blank"
-                      class="text-sm text-gray-400 hover:text-green-400">🔗 ${user.repo}</a>
+                      class="text-sm text-gray-400 hover:text-green-400">🔗 ${
+                        user.repo
+                      }</a>
                   </div>
-                  <button onclick="markDone('${user.name}')"
-                    class="text-xs text-gray-400 hover:text-green-400">
-                    Mark as Done
-                  </button>
+                  ${
+                    hideButton
+                      ? `<button disabled class="text-xs text-green-500 opacity-60 cursor-not-allowed">Done ✅</button>`
+                      : `<button onclick="markDone('${user.name}')" class="text-xs text-gray-400 hover:text-green-400">Mark as Done</button>`
+                  }
                 </div>
 
                 <div class="w-full bg-gray-700 rounded-full h-4 mb-2 overflow-hidden">
@@ -69,7 +75,7 @@
       }
 
       async function markDone(name) {
-        if (!confirm(`Keren brok, Yakin udah selesai ${name}?`)) return;
+        if (!confirm(`Keren brok, yakin ${name} udah selesai?`)) return;
 
         try {
           const res = await fetch("/api/markdone", {
@@ -84,13 +90,23 @@
             const card = [
               ...document.querySelectorAll("#dashboard > div"),
             ].find((c) => c.innerHTML.includes(name));
+
             if (card) {
               card.querySelector("div.bg-gray-700 > div").style.width = "100%";
               card.querySelector(
                 "div.flex.justify-between.text-sm span:last-child"
               ).innerText = "Done (manual)";
               card.querySelector("span:nth-child(2)").innerText = "100%";
-              card.querySelector("button").innerText = "Done";
+
+              const button = card.querySelector("button");
+              button.innerText = "Done";
+              button.disabled = true;
+              button.classList.add(
+                "text-green-500",
+                "opacity-60",
+                "cursor-not-allowed"
+              );
+              button.classList.remove("hover:text-green-400");
             }
           } else {
             const err = await res.json();
