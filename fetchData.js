@@ -49,7 +49,6 @@ async function main() {
     const totalCommits = await getTotalCommits(p.username, p.repo);
     const target = p.project_done_commit || 30;
     const commitProgress = Math.min((totalCommits / target) * 100, 100);
-
     const progress = p.manual_done ? 100 : Math.round(commitProgress);
 
     let status = "On Progress 🔧";
@@ -66,6 +65,10 @@ async function main() {
       progress,
       status,
     });
+  }
+
+  if (!fs.existsSync("./data")) {
+    fs.mkdirSync("./data", { recursive: true });
   }
 
   fs.writeFileSync("./data/progress.json", JSON.stringify(results, null, 2));
