@@ -80,7 +80,18 @@
 
           if (res.ok) {
             alert(`${name} berhasil di-mark as done!`);
-            loadProgress();
+
+            const card = [
+              ...document.querySelectorAll("#dashboard > div"),
+            ].find((c) => c.innerHTML.includes(name));
+            if (card) {
+              card.querySelector("div.bg-gray-700 > div").style.width = "100%";
+              card.querySelector(
+                "div.flex.justify-between.text-sm span:last-child"
+              ).innerText = "Done (manual)";
+              card.querySelector("span:nth-child(2)").innerText = "100%";
+              card.querySelector("button").innerText = "Done";
+            }
           } else {
             const err = await res.json();
             alert("Gagal mark as done: " + (err.message || "unknown error"));
