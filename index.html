@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🔥 Challenge Tracker 2025</title>
+    <title>Challenge Tracker</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
@@ -46,7 +46,7 @@
                   </div>
                   <button onclick="markDone('${user.name}')"
                     class="text-xs text-gray-400 hover:text-green-400">
-                    Mark as Done ✅
+                    Mark as Done
                   </button>
                 </div>
 
@@ -64,7 +64,7 @@
             `;
           });
         } catch (err) {
-          console.error("❌ Gagal load progress:", err);
+          console.error("Gagal load progress:", err);
         }
       }
 
@@ -79,14 +79,14 @@
           });
 
           if (res.ok) {
-            alert(`✅ ${name} berhasil di-mark as done!`);
+            alert(`${name} berhasil di-mark as done!`);
             loadProgress();
           } else {
             const err = await res.json();
-            alert("❌ Gagal mark as done: " + (err.message || "unknown error"));
+            alert("Gagal mark as done: " + (err.message || "unknown error"));
           }
         } catch (err) {
-          alert("⚠️ Gagal konek ke server.");
+          alert("Gagal konek ke server.");
           console.error(err);
         }
       }

@@ -14,7 +14,7 @@ async function getTotalCommits(username, repo) {
       const res = await fetch(url, { headers });
 
       if (!res.ok) {
-        console.warn(`⚠️ [${username}/${repo}] Response: ${res.status}`);
+        console.warn(`[${username}/${repo}] Response: ${res.status}`);
         await new Promise((r) => setTimeout(r, 2000));
         continue;
       }
@@ -31,12 +31,12 @@ async function getTotalCommits(username, repo) {
 
       return totalCommits;
     } catch (err) {
-      console.error(`❌ Error ambil data ${repo}:`, err.message);
+      console.error(`Error ambil data ${repo}:`, err.message);
       await new Promise((r) => setTimeout(r, 2000));
     }
   }
 
-  console.warn(`❌ Gagal ambil data commit dari ${repo} setelah 3 percobaan.`);
+  console.warn(`Gagal ambil data commit dari ${repo} setelah 3 percobaan.`);
   return 0;
 }
 
@@ -52,11 +52,11 @@ async function main() {
     const progress = p.manual_done ? 100 : Math.round(commitProgress);
 
     let status = "On Progress 🔧";
-    if (p.manual_done) status = "Done ✅ (manual)";
-    else if (progress >= 100) status = "Done ✅";
-    else if (progress >= 75) status = "Almost There 🚀";
-    else if (progress >= 50) status = "Halfway ⚡";
-    else if (progress < 10) status = "Starting 🪄";
+    if (p.manual_done) status = "Done (manual)";
+    else if (progress >= 100) status = "Done";
+    else if (progress >= 75) status = "Almost There";
+    else if (progress >= 50) status = "Halfway";
+    else if (progress < 10) status = "Starting";
 
     results.push({
       name: p.name,
@@ -72,7 +72,7 @@ async function main() {
   }
 
   fs.writeFileSync("./data/progress.json", JSON.stringify(results, null, 2));
-  console.log("✅ Progress updated! Lihat hasil di data/progress.json");
+  console.log("Progress updated! Lihat hasil di data/progress.json");
 }
 
 main();

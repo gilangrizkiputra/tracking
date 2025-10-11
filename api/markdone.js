@@ -6,12 +6,13 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name } = await req.json();
-    if (!name)
+    const { name } = req.body;
+    if (!name) {
       return res.status(400).json({ message: "Missing participant name" });
+    }
 
     const token = process.env.GITHUB_TOKEN;
-    const username = "Herbs";
+    const username = "gilangrizkiputra";
     const repo = "tracking";
     const filePath = "participants.json";
 
@@ -40,7 +41,7 @@ export default async function handler(req, res) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        message: `✅ Mark ${name} as done (via web)`,
+        message: `Mark ${name} as done (via web)`,
         content: updatedContent,
         sha: fileData.sha,
       }),
@@ -55,7 +56,7 @@ export default async function handler(req, res) {
       return res.status(500).json({ success: false, error });
     }
   } catch (err) {
-    console.error("❌ Error mark done:", err);
+    console.error("Error mark done:", err);
     return res.status(500).json({ success: false, error: err.message });
   }
 }
