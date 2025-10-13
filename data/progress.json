@@ -2,7 +2,7 @@
   {
     "name": "Herbs",
     "repo": "tracking",
-    "total_commits": 57,
+    "total_commits": 60,
     "progress": 100,
     "status": "Done"
   },
@@ -11,6 +11,13 @@
     "repo": "Toko_kue_sidebar",
     "total_commits": 2,
     "progress": 7,
+    "status": "Starting"
+  },
+  {
+    "name": "Ifran Hilmi Azhara",
+    "repo": "frans-barber",
+    "total_commits": 0,
+    "progress": 0,
     "status": "Starting"
   }
 ]
