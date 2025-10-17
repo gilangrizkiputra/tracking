@@ -1,23 +1,30 @@
 [
   {
     "name": "Herbs",
-    "repo": "tracking",
-    "total_commits": 60,
-    "progress": 100,
-    "status": "Done"
+    "repo": "be-elearning",
+    "total_commits": 6,
+    "progress": 20,
+    "status": "On Progress 🔧"
   },
   {
     "name": "ADITYA RIZKY FAJRIANSYAH",
     "repo": "Toko_kue_sidebar",
-    "total_commits": 2,
-    "progress": 7,
-    "status": "Starting"
+    "total_commits": 3,
+    "progress": 10,
+    "status": "On Progress 🔧"
   },
   {
     "name": "Ifran Hilmi Azhara",
-    "repo": "frans-barber",
-    "total_commits": 0,
-    "progress": 0,
-    "status": "Starting"
+    "repo": "larave-vue-pos",
+    "total_commits": 32,
+    "progress": 100,
+    "status": "Done"
+  },
+  {
+    "name": "Gede Oke",
+    "repo": "STRAVA-RAG-CHATBOT",
+    "total_commits": 14,
+    "progress": 47,
+    "status": "On Progress 🔧"
   }
 ]

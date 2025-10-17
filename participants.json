@@ -16,7 +16,14 @@
   {
     "name": "Ifran Hilmi Azhara",
     "username": "Resmincent",
-    "repo": "frans-barber",
+    "repo": "larave-vue-pos",
+    "project_done_commit": 30,
+    "manual_done": false
+  },
+  {
+    "name": "Gede Oke",
+    "username": "GedeOke",
+    "repo": "STRAVA-RAG-CHATBOT",
     "project_done_commit": 30,
     "manual_done": false
   }
