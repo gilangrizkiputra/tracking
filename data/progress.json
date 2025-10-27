@@ -26,5 +26,12 @@
     "total_commits": 16,
     "progress": 100,
     "status": "Done (manual)"
+  },
+  {
+    "name": "Mqurtubi",
+    "repo": "spotify",
+    "total_commits": 24,
+    "progress": 80,
+    "status": "Almost There"
   }
 ]
