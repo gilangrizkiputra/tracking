@@ -2,15 +2,15 @@
   {
     "name": "Herbs",
     "repo": "ReYou",
-    "total_commits": 4,
-    "progress": 13,
+    "total_commits": 7,
+    "progress": 23,
     "status": "On Progress 🔧"
   },
   {
     "name": "ADITYA RIZKY FAJRIANSYAH",
     "repo": "Toko_kue_sidebar",
-    "total_commits": 5,
-    "progress": 17,
+    "total_commits": 6,
+    "progress": 20,
     "status": "On Progress 🔧"
   },
   {
@@ -30,8 +30,8 @@
   {
     "name": "Mqurtubi",
     "repo": "spotify",
-    "total_commits": 27,
-    "progress": 90,
-    "status": "Almost There"
+    "total_commits": 30,
+    "progress": 100,
+    "status": "Done"
   }
 ]
