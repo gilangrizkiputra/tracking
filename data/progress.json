@@ -2,8 +2,8 @@
   {
     "name": "Herbs",
     "repo": "ReYou",
-    "total_commits": 15,
-    "progress": 50,
+    "total_commits": 17,
+    "progress": 57,
     "status": "Halfway"
   },
   {
@@ -30,7 +30,7 @@
   {
     "name": "Mqurtubi",
     "repo": "spotify",
-    "total_commits": 30,
+    "total_commits": 32,
     "progress": 100,
     "status": "Done"
   }
